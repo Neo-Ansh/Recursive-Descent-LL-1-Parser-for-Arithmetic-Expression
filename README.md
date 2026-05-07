@@ -1,153 +1,57 @@
 LL(1) Expression Parser
-A simple and interactive LL(1) Expression Parser built using Python and Tkinter.
-This project helps visualize how parsing works in compiler design by showing step-by-step parsing execution, syntax validation, and parse tree generation.
+
+A simple LL(1) Expression Parser built using Python and Tkinter to understand compiler design concepts in a practical way.
+The project can analyze arithmetic expressions, validate syntax, show step-by-step parsing, and generate a parse tree through an interactive GUI.
 
 Features
-
-
-LL(1) Table-Driven Parsing
-
-
-Real-time syntax validation
-
-
-Step-by-step parser execution trace
-
-
+LL(1) table-driven parser
+Real-time syntax checking
+Step-by-step parsing trace
 Parse tree visualization
-
-
-Interactive GUI using Tkinter
-
-
-Supports arithmetic expressions with:
-
-
-Addition (+)
-
-
-Multiplication (*)
-
-
-Parentheses (())
-
-
-Integers / identifiers
-
-
-
-
-
-Tech Stack
-
-
-Python
-
-
-Tkinter (GUI)
-
-
-
-How It Works
-The parser uses an LL(1) parsing table based on the grammar rules of arithmetic expressions.
+Interactive GUI with Tkinter
+Supports +, *, parentheses, and numbers
 Grammar Used
-E → TXX → +TX | εT → FYY → *FY | εF → i | (E)
-The input expression is first preprocessed:
+E → TX
+X → +TX | ε
+T → FY
+Y → *FY | ε
+F → i | (E)
+How It Works
 
+The parser preprocesses the input by removing spaces and converting numbers into i.
+It then uses stack-based LL(1) parsingrules to validate the expression and display the parsing process.
 
-Spaces are removed
+How to Run
 
+Clone the repository:
+git clone <repo-link>
+cd <folder-name>
 
-Numbers are converted into i
-
-
-The parser then validates the expression using stack-based LL(1) parsing
-
-
-
-Installation & Run
-1. Clone the Repository
-git clone <your-repo-link>cd <repo-folder>
-2. Run the Program
+Run the file:
 python expression_parser.py
-
-How to Use
-
-
-Enter an arithmetic expression in the input box
-
-
-Example:
-(2+3)*4
-
-
-Click Parse
-
-
-View:
-
-
-Parsing steps
-
-
-Stack operations
-
-
-Input processing
-
-
-Final result
-
-
-
-
-Click Show Tree to visualize the parse tree
-
-
-
 Example Inputs
+
 Valid:
-2+3(1+2)*57*(3+4)
+2+3
+(2+3)*4
+7*(1+5)
+
 Invalid:
-++3(2+35**
+++3
+(2+3
+4**
+How to Use
+Enter an arithmetic expression
+Click Parse
+View the parsing steps and result
+Click Show Tree to visualize the parse tree
+Tech Used
+Python
+Tkinter
+Purpose
 
-Learning Purpose
-This project was created to better understand:
-
-
+This project was built for learning and experimenting with:
 Compiler Design
-
-
 LL(1) Parsing
-
-
-Context-Free Grammars
-
-
 Parse Trees
-
-Stack-based Parsing Techniques
-
-
-
-Future Improvements
-
-
-Better parse tree visualization
-
-
-More grammar support
-
-
-Error recovery handling
-
-
-Tokenizer/Lexer integration
-
-
-Dark/light theme support
-
-
-
-Author
-Made with Python for learning and experimenting with parsing concepts.
+Stack-based parsing techniques
